@@ -1,0 +1,168 @@
+/*** Responsive media code ***/
+img, video{
+    width: auto;
+    height: auto;
+    max-width: 100%;
+}
+
+/*** Make whole page responsive ***/
+@supports (grid-area: auto){
+  
+  .content{
+    max-width: 1125px;
+    padding-top: 10px;
+    margin: auto;
+    position: relative;
+  }
+    
+  .grid{
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: max-content;
+    grid-template-areas: 
+      "topbar"
+      "main"
+      "footer";
+  }
+    
+  .main{
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      grid-template-rows: 1fr 1fr;
+      grid-template-areas: 
+        "section section"    
+        "section section";
+    }
+  
+  .topbar { grid-area: topbar; }
+    
+  .main{ grid-area: main; }
+  
+  .footer { grid-area: footer; }
+  
+}
+
+/**Design css **/
+
+.footer p{
+    text-align: center;
+    padding-top: 1px;
+}
+
+/** topbar specific **/
+.topbar h1{
+    color: rgb(40, 255, 126);
+    margin-left: 2%;
+    text-shadow: 2px 2px rgba(0, 0, 0,.8);
+}
+
+.headline{
+    float: right;
+    text-align: center;
+    margin-right: 3%;
+}
+
+.cb-slideshow {
+    list-style-type: none;
+}
+
+/** nav specific **/
+
+.nav ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: rgb(40, 255, 126);
+    width: 50%;
+    box-shadow: 2px 2px rgba(0, 0, 0,.8);
+}
+
+.nav li {
+    float: left;
+}
+
+.nav li a {
+    display: block;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    color: black;
+}
+
+.nav li a:hover {
+    text-decoration: underline;
+}
+
+.nav li a:visited {
+    text-decoration: underline;
+    color: black;
+}
+
+.nav li a.active{
+    text-decoration: underline;
+}
+
+/** main specific **/
+.main {
+    padding-top: 6px;
+    padding-left: 6px;
+    padding-right: 6px;
+    background-color: rgba(0, 0, 0,.7);
+}
+
+.main .section a{
+    margin: auto;
+    text-align: center;
+    color: #d6d6d6;
+    text-decoration: none;
+}
+
+.main .section a:hover{
+    margin: auto;
+    text-align: center;
+    color: rgb(40, 255, 126);
+    text-decoration: none;
+}
+
+.main .section{
+    margin: auto;
+    padding: 1%;
+}
+
+.main .section h2{
+    margin: auto;
+    text-align: center;
+}
+
+/**about.html specific**/
+.mainabout {
+    padding-left: 20px;
+    padding-right: 20px;
+}
+
+.mainabout .about .box{
+    text-align: center;
+    margin: auto;
+    width: 60%;
+    background-color: rgba(0, 0, 0,.7);
+}
+
+.mainabout .about .box p{
+    padding: 20px;
+}
+
+/** directions.html specific **/
+.map-responsive{
+  position: relative;
+  height: 0;
+  padding-bottom: 70%;
+}
+
+.map-responsive iframe{
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+}

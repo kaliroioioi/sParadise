@@ -1,0 +1,371 @@
+/*** Responsive media code ***/
+img, video{
+    width: auto;
+    height: auto;
+    max-width: 100%;
+}
+
+/*** Make whole page responsive ***/
+@supports (grid-area: auto){
+  
+  .content{
+    max-width: 1125px;
+    padding-top: 10px;
+    margin: auto;    
+  }
+    
+  .grid{
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    grid-template-rows: 1fr;
+    grid-template-areas: 
+      "sidebar main"
+      "footer main";
+  }
+    
+  .maincontent{
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: max-content;
+    grid-template-areas:
+      "intro";
+  }
+  
+/*about.html specific*/
+  .maincontentaboutus{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: max-content;
+    grid-template-areas:
+      "photo aboutus";
+  }
+    
+  .sidebar{ grid-area: sidebar; }
+  
+  .main{ grid-area: main; }
+  
+  .intro { grid-area: intro; }
+  
+  /*about.html specific*/
+  .photo{ grid-area: photo; }
+
+  .aboutus { grid-area: aboutus; }
+
+  .footer { grid-area: footer; }
+  
+}
+
+  .sidebar, .main{
+    padding: 10px;
+}
+
+  .maincontent{
+    padding: 10px;
+}
+
+/*about.html specific*/
+  .maincontentaboutus{
+    padding: 10px;
+}
+
+  .logo img{
+        padding-top: 10px;
+        margin: auto;  
+}
+
+  .heroimage{
+    padding: 10px;
+}
+
+/*gallery.html specific*/
+  .gcontent table{
+    padding: 3px;
+    margin: auto;
+  }
+    
+  .intro{
+    height: auto;
+    width: 80%;
+    position: relative;
+    bottom: 110px;
+    left: 20px;
+  }
+
+/** directions.html specific **/
+  .dintro{
+    height: auto;
+    width: 70%;
+    position: relative;
+    bottom: 150px;
+    left: 55px;
+  }
+    
+/* about.html specific*/
+  .infobar{
+    height: auto;
+    width: 80%;
+    position: relative;
+    bottom: 100px;
+  }
+
+.footer {
+  font-style: italic;
+  text-align: center;
+}
+
+.intro, .infobar /*about.html specific*/, .dintro /*directions.html specific*/{
+  background-color: rgba(0,127,255,.3);
+}
+
+.intro h3, .infobar h3, .dintro h3{
+    color: #FFF;
+    padding-left: 5px;
+    padding-right: 5px;
+    padding-top: 5px;
+}
+
+p.info{
+    color: #FFF;
+    padding-left: 10px;
+    padding-right: 10px;
+    padding-bottom: 5px;
+}
+
+.nav {
+    margin: auto;
+    padding-top: 5%;
+    padding-bottom: 5%;
+}
+
+/* Transition code from nav.css */
+a {
+    -moz-transition: all 0.3s ease;
+    -o-transition: all 0.3s ease;
+    -webkit-transition: all 0.3s ease;
+    transition: all 0.3s ease;
+}
+
+a, p{
+  color: #000;
+  font-weight: 100;
+  font-size: .75em;
+}
+
+a{
+  text-decoration: none;
+  font-size: 1.5em;
+}
+
+li a:hover{
+  text-decoration: none;
+  background-color: black;
+  color: rgb(255,250,107);
+}
+
+nav ul{
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+  text-align: center;
+}
+
+nav ul li{
+  padding-top: 20px;
+  padding-bottom: 20px;  
+}
+
+/**about.html specific */
+.aboutus{
+    margin-left: 10px;
+    margin-right: 10px;
+}
+
+.aboutus p{
+    text-align: justify;
+}
+
+.aboutus ul{
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+  text-align: justify;
+  font-size: .50em;
+}
+
+.aboutus li{
+ padding-bottom: 2px;
+ padding-left: 8px;
+ padding-right: 8px;
+}
+
+/* gallery.html specific */
+.thumb{
+ max-width: 170px;
+ max-height: 170px;
+ overflow: hidden;
+ padding: 5px;
+ margin: auto;
+}
+
+th:hover{
+ background-color: rgba(0,127,255,0.2);
+}
+
+/* popup in gallery.html specific 
+   edited from "https://codepen.io/imprakash/pen/GgNMXO"
+   revisit this code to fully understand it...
+   how to center image? (tried everything i know so far)
+*/
+
+.overlay {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: rgba(0, 127, 255, 0.7);
+  transition: opacity 500ms;
+  visibility: hidden;
+  opacity: 0;
+}
+
+.overlay:target {
+  visibility: visible;
+  opacity: 1;
+}
+
+.popup {
+  margin: 20px auto;
+  padding: 5px;
+  background: #fff;
+  border-radius: 5px;
+  width: 55%;
+  position: relative;
+  transition: all 3s ease-in-out;
+}
+
+.popup .close {
+  position: absolute;
+  top: 5px;
+  right: 15px;
+  transition: all 100ms;
+  font-size: 30px;
+  font-weight: bold;
+  text-decoration: none;
+  color: #333;
+}
+
+.popup .pic{
+   margin: auto;
+   width: 35%;
+}
+
+.popup .close:hover {
+  color: rgb(255, 0, 0);
+}
+
+.popup h3{
+  color: #333;
+}
+
+/** directions.html specific **/
+.map-responsive{
+  position: relative;
+  height: 0;
+  padding-bottom: 70%;
+}
+
+.map-responsive iframe{
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+}
+
+/**Media Queries**/
+@media screen and (max-width: 600px){
+  .popup{
+    width: auto;
+  }
+}
+
+/**Standard**/
+@media (min-width: 600px){
+  .intro{
+    height: auto;
+    width: 70%;
+    position: relative;
+    bottom: 115px;
+    left: 15%;
+  }
+
+/** directions.html specific **/
+  .dintro{
+    height: auto;
+    width: 80%;
+    position: relative;
+    bottom: 150px;
+    left: 10%;
+  }
+}
+
+@media (max-width: 900px) {
+  /* about.html specific*/
+  .maincontentaboutus{
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr 1fr;
+    grid-template-areas:
+      "photo"
+      "aboutus";
+  }
+
+  .infobar{
+    height: auto;
+    width: 30%;
+    position: relative;
+    bottom: 100px;
+    left: 1%;
+  }
+}
+
+@media (min-width: 600px) and (max-width: 900px){
+  /* about.html specific*/
+  .maincontentaboutus{
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr 1fr;
+    grid-template-areas:
+      "photo"
+      "aboutus";
+  }
+    
+  .infobar{
+    height: auto;
+    width: 70%;
+    position: relative;
+    bottom: 100px;
+    left: 1%;
+  }
+}
+
+@media (min-width: 900px) and (max-width:1200px){
+  /* about.html specific*/
+  .maincontentaboutus{
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr 1fr;
+    grid-template-areas:
+      "photo"
+      "aboutus";
+  }
+
+  .infobar{
+    height: auto;
+    width: 30%;
+    position: relative;
+    bottom: 100px;
+    left: 1%;
+  }
+}

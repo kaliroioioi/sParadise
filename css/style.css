@@ -1,0 +1,134 @@
+/*** Responsive media code ***/
+img, video{
+    width: auto;
+    height: auto;
+    max-width: 100%;
+}
+
+/*** Make whole page responsive ***/
+@supports (grid-area: auto){
+  
+  .content{
+    max-width: 1125px;
+    padding-top: 10px;
+    margin: auto;    
+  }
+    
+  .grid{
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: max-content;
+    grid-template-areas: 
+      "topbar"
+      "main"
+      "footer";
+  }
+    
+  .main{
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      grid-template-rows: 1fr 1fr;
+      grid-template-areas: 
+        "section section"    
+        "section section";
+    }
+  
+  .topbar { grid-area: topbar; }
+    
+  .main{ grid-area: main; }
+  
+  .footer { grid-area: footer; }
+  
+}
+
+/**Design css **/
+.topbar{
+    background-color: #FFE4B8;
+}
+
+.main{
+    background-color: #4abbc7;
+}
+
+.footer p{
+    background-color: #398BDD;
+    text-align: center;
+    padding-top: 1px;
+}
+
+/** topbar specific **/
+.topbar h1{
+    color: #4abbc7;
+    margin-left: 2%;
+}
+
+/** nav specific **/
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: #BBC2C4;
+}
+
+li {
+    float: left;
+}
+
+li a {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+}
+
+li a:hover {
+    background-color: #4abbc7;
+}
+
+li a.active{
+    background-color: #4abbc7;
+}
+
+/** main specific **/
+.main {
+    padding-top: 6px;
+    padding-left: 6px;
+    padding-right: 6px;
+}
+
+.main .section a{
+    margin: auto;
+    text-align: center;
+}
+
+.main .section{
+    margin: auto;
+}
+
+.main .section p{
+    margin: auto;
+    text-align: center;
+}
+
+/**about.html specific**/
+.mainabout {
+    background-color: #4abbc7;
+    padding-left: 20px;
+    padding-right: 20px;
+}
+
+.mainabout h2{
+    margin-top: 20px;
+    font-size: 1.5em;
+    color: #153351;
+    text-align: center;
+}
+
+.mainabout .about .box{
+    text-align: justify;
+    color: white;
+    margin: auto;
+    width: 50%;
+}
